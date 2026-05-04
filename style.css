@@ -333,13 +333,369 @@ body.exiting .sakura-petal.lp {
 }
 
 /* ===== RESPONSIVE ===== */
+
+/* Tablet (768px and below) */
 @media (max-width: 768px) {
-  .moon-body { width: 70px; height: 70px; }
-  .moon { top: 5%; right: 10%; }
-  .tree-silhouette { width: 120px; }
-  .kanji-bg { font-size: 18rem; }
+  .landing-content {
+    padding: 20px;
+  }
+
+  .kanji-bg {
+    font-size: clamp(16rem, 35vw, 30rem);
+  }
+
+  .landing-kicker {
+    font-size: .78rem;
+    padding: 7px 16px;
+  }
+
+  .title-line {
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+  }
+
+  .landing-sub {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .enter-text {
+    padding: 12px 28px;
+    font-size: .9rem;
+  }
+
+  .pulse-ring {
+    width: 160px;
+    height: 160px;
+  }
+
+  .sound-hint {
+    font-size: .75rem;
+    bottom: 20px;
+  }
+
+  .moon-body {
+    width: 70px;
+    height: 70px;
+  }
+
+  .moon {
+    top: 5%;
+    right: 8%;
+  }
+
+  .tree-silhouette {
+    width: 120px;
+    height: 40vh;
+  }
+
+  .mountains {
+    height: 30vh;
+  }
+
+  .fog {
+    height: 80px;
+    bottom: 12%;
+  }
+
+  .fog-2 {
+    bottom: 18%;
+  }
+
+  .sakura-petal.lp {
+    animation-duration: 10s;
+  }
+
+  .firefly {
+    width: 3px;
+    height: 3px;
+    box-shadow: 0 0 6px 2px rgba(253,230,138,0.4);
+  }
 }
+
+/* Mobile (640px and below) */
+@media (max-width: 640px) {
+  .landing-content {
+    padding: 16px;
+  }
+
+  .kanji-bg {
+    font-size: clamp(12rem, 30vw, 20rem);
+  }
+
+  .landing-kicker {
+    font-size: .75rem;
+    padding: 6px 14px;
+    margin-bottom: 16px;
+  }
+
+  .title-line {
+    font-size: clamp(1.5rem, 4vw, 2.8rem);
+    gap: 4px;
+  }
+
+  .landing-title {
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .landing-sub {
+    font-size: .95rem;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+  }
+
+  .enter-prompt {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .enter-text {
+    padding: 11px 24px;
+    font-size: .85rem;
+    letter-spacing: 0.5px;
+  }
+
+  .pulse-ring {
+    width: 140px;
+    height: 140px;
+    border: 1px solid rgba(59,130,246,0.12);
+  }
+
+  .ring-2 {
+    animation-delay: 1s;
+  }
+
+  .sound-hint {
+    font-size: .7rem;
+    bottom: 16px;
+  }
+
+  .moon-body {
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 0 40px 15px rgba(232,220,200,0.1);
+  }
+
+  .moon-glow {
+    inset: -30px;
+  }
+
+  .moon {
+    top: 3%;
+    right: 5%;
+  }
+
+  .tree-silhouette {
+    width: 100px;
+    height: 35vh;
+  }
+
+  .mountains {
+    height: 25vh;
+  }
+
+  .fog {
+    height: 70px;
+    bottom: 10%;
+  }
+
+  .fog-2 {
+    bottom: 15%;
+  }
+
+  .sakura-petal.lp {
+    width: 7px;
+    height: 7px;
+    animation-duration: 8s;
+  }
+
+  .firefly {
+    width: 2px;
+    height: 2px;
+    box-shadow: 0 0 4px 1.5px rgba(253,230,138,0.3);
+  }
+}
+
+/* Small Mobile (480px and below) */
 @media (max-width: 480px) {
-  .tree-silhouette { display: none; }
-  .moon-body { width: 50px; height: 50px; }
+  .landing-content {
+    padding: 14px;
+  }
+
+  .kanji-bg {
+    font-size: clamp(10rem, 25vw, 16rem);
+  }
+
+  .landing-kicker {
+    font-size: .7rem;
+    padding: 5px 12px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .title-line {
+    font-size: clamp(1.2rem, 3.5vw, 2.2rem);
+  }
+
+  .landing-title {
+    gap: 2px;
+    margin-bottom: 8px;
+  }
+
+  .landing-sub {
+    font-size: .9rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 24px;
+  }
+
+  .enter-text {
+    padding: 10px 20px;
+    font-size: .8rem;
+    letter-spacing: 0.3px;
+  }
+
+  .pulse-ring {
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(59,130,246,0.1);
+  }
+
+  .ring-2 {
+    animation-delay: 0.8s;
+  }
+
+  .sound-hint {
+    font-size: .65rem;
+    bottom: 12px;
+  }
+
+  .moon-body {
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 0 30px 10px rgba(232,220,200,0.08);
+  }
+
+  .moon-glow {
+    inset: -25px;
+  }
+
+  .moon {
+    top: 2%;
+    right: 3%;
+  }
+
+  .tree-silhouette {
+    display: none;
+  }
+
+  .mountains {
+    height: 20vh;
+  }
+
+  .m1 {
+    left: -10%;
+  }
+
+  .m3 {
+    right: -15%;
+  }
+
+  .fog {
+    height: 60px;
+    bottom: 8%;
+  }
+
+  .fog-2 {
+    bottom: 12%;
+  }
+
+  .sakura-petal.lp {
+    width: 6px;
+    height: 6px;
+    animation-duration: 7s;
+  }
+
+  .firefly {
+    width: 2px;
+    height: 2px;
+    box-shadow: 0 0 3px 1px rgba(253,230,138,0.25);
+  }
+
+  .shooting-star {
+    height: 1px;
+  }
 }
+
+/* Extra Small Mobile (380px and below) */
+@media (max-width: 380px) {
+  .landing-content {
+    padding: 12px;
+  }
+
+  .kanji-bg {
+    font-size: clamp(8rem, 22vw, 12rem);
+  }
+
+  .landing-kicker {
+    font-size: .65rem;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+  }
+
+  .title-line {
+    font-size: clamp(1rem, 3vw, 1.8rem);
+  }
+
+  .landing-title {
+    gap: 2px;
+    margin-bottom: 6px;
+  }
+
+  .landing-sub {
+    font-size: .85rem;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+
+  .enter-text {
+    padding: 9px 18px;
+    font-size: .75rem;
+    letter-spacing: 0px;
+  }
+
+  .pulse-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .sound-hint {
+    font-size: .6rem;
+    bottom: 10px;
+  }
+
+  .moon-body {
+    width: 45px;
+    height: 45px;
+  }
+
+  .mountains {
+    height: 18vh;
+  }
+
+  .fog {
+    height: 50px;
+    bottom: 6%;
+  }
+
+  .fog-2 {
+    bottom: 10%;
+  }
+
+  .sakura-petal.lp {
+    width: 5px;
+    height: 5px;
+    animation-duration: 6s;
+  }
+}
+
