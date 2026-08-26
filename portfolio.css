@@ -471,3 +471,60 @@ body { animation: page-enter 1.2s ease-out; }
   .skills-grid { grid-template-columns: 1fr; }
   .hero-kanji { font-size: 10rem; }
 }
+
+/* ===== RESPONSIVE LAYOUT SAFEGUARDS ===== */
+/* Keep the complete hero and its statistics inside the phone scroll flow. */
+@media (max-width: 560px) {
+  .port-hero {
+    min-height: 0;
+    padding: 56px 18px 32px;
+    overflow: visible;
+  }
+
+  .avatar-wrap {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 18px;
+  }
+
+  .avatar { width: 120px; height: 120px; }
+  .hero-sub { margin-top: 16px; }
+  .hero-cta { margin-top: 24px; }
+  .hero-stats { margin-top: 28px; }
+  .hero-inner { gap: 28px; }
+  .hero-visual { min-height: 250px; }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 0;
+    margin-top: 0;
+    padding-top: 20px;
+  }
+
+  .hero-stats > div,
+  .hero-stats > div + div {
+    min-width: 0;
+    padding: 0 8px;
+    text-align: center;
+  }
+
+  .hero-stats strong { font-size: 1.35rem; }
+  .hero-stats span { display: block; font-size: .72rem; line-height: 1.35; }
+}
+
+/* Show complete certificate cards at tablet and phone widths instead of a clipped sliver. */
+@media (max-width: 820px) {
+  .certs-scroll {
+    gap: 16px;
+    padding: 16px 8px 28px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .cert { flex-basis: calc((100% - 16px) / 2); }
+}
+
+@media (max-width: 560px) {
+  .cert { flex-basis: 100%; }
+}
