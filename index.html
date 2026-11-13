@@ -4,18 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="vaTx44el3KygILxzAvdhCVMHtKsJS55Rojwe8lqXHuQ" />
-  <title>Enter — Shubham's World</title>
+  <title>Shubham Mankar — Developer</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- AUDIO — Replace "your-music.mp3" with your actual audio file path -->
+  <audio id="bgAudio" loop preload="none">
     <source src="Sparkle.mp3" type="audio/mpeg" />
   </audio>
 
-
   <!-- Sakura Petals -->
-  <div class="sakura-petal lp"></div>
-  <div class="sakura-petal lp"></div>
   <div class="sakura-petal lp"></div>
   <div class="sakura-petal lp"></div>
   <div class="sakura-petal lp"></div>
@@ -46,25 +43,29 @@
   <div class="firefly"></div>
   <div class="firefly"></div>
   <div class="firefly"></div>
-  <div class="firefly"></div>
-  <div class="firefly"></div>
 
-  <!-- Shooting stars -->
+  <!-- Shooting Stars -->
   <div class="shooting-star ss-1"></div>
   <div class="shooting-star ss-2"></div>
   <div class="shooting-star ss-3"></div>
+  <div class="shooting-star ss-4"></div>
 
-  <!-- Fog layers -->
+  <!-- Fog -->
   <div class="fog fog-1"></div>
   <div class="fog fog-2"></div>
 
-  <!-- Moon glow -->
+  <!-- Violet nebula glow orbs -->
+  <div class="nebula nb-1"></div>
+  <div class="nebula nb-2"></div>
+  <div class="nebula nb-3"></div>
+
+  <!-- Moon -->
   <div class="moon">
     <div class="moon-glow"></div>
     <div class="moon-body"></div>
   </div>
 
-  <!-- Mountain silhouettes -->
+  <!-- Mountains -->
   <div class="mountains">
     <div class="mountain m1"></div>
     <div class="mountain m2"></div>
@@ -75,40 +76,99 @@
   <div class="tree-silhouette tree-left"></div>
   <div class="tree-silhouette tree-right"></div>
 
+  <!-- Stars grid -->
+  <div class="stars-layer" aria-hidden="true"></div>
+
   <!-- Main content -->
   <div class="landing-content" id="landingContent">
-    <div class="kanji-bg">侍</div>
-    <p class="landing-kicker">✦ A Developer's Journey Awaits</p>
+    <div class="kanji-bg" aria-hidden="true">侍</div>
+
+    <p class="landing-kicker">
+      <span class="kicker-dot"></span>
+      A Developer's Journey Awaits
+    </p>
+
     <h1 class="landing-title">
       <span class="title-line line-1">Welcome to</span>
       <span class="title-line line-2">Shubham's <span class="highlight">World</span></span>
     </h1>
-    <p class="landing-sub">Code. Create. Conquer.</p>
-    <div class="enter-prompt">
+
+    <p class="landing-sub">Code &nbsp;·&nbsp; Create &nbsp;·&nbsp; Engineer</p>
+
+    <div class="enter-wrap">
       <div class="pulse-ring"></div>
       <div class="pulse-ring ring-2"></div>
-      <span class="enter-text">Click Anywhere to Enter</span>
+      <div class="pulse-ring ring-3"></div>
+      <button class="enter-btn" id="enterBtn" aria-label="Enter portfolio">
+        <span class="enter-text">Enter</span>
+        <span class="enter-arrow">→</span>
+      </button>
     </div>
-    <div class="sound-hint"></div>
+
+    <!-- Sound toggle -->
+    <button class="sound-toggle" id="soundToggle" aria-label="Toggle background music">
+      <span class="sound-icon" id="soundIcon">♪</span>
+      <span class="sound-label" id="soundLabel">Sound Off</span>
+    </button>
   </div>
 
   <!-- Transition overlay -->
   <div class="transition-overlay" id="transitionOverlay"></div>
 
   <script>
-  document.body.addEventListener('click', function () {
+  (function () {
+    const btn = document.getElementById('enterBtn');
     const overlay = document.getElementById('transitionOverlay');
+    const content = document.getElementById('landingContent');
+    const soundBtn = document.getElementById('soundToggle');
+    const soundIcon = document.getElementById('soundIcon');
+    const soundLabel = document.getElementById('soundLabel');
+    const audio = document.getElementById('bgAudio');
+    let soundOn = false;
 
-    // mark user interaction
-    localStorage.setItem('enteredSite', 'true');
+    // Sound toggle
+    soundBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      soundOn = !soundOn;
+      if (soundOn) {
+        audio.volume = 0.5;
+        audio.play().catch(() => {});
+        soundIcon.textContent = '♫';
+        soundLabel.textContent = 'Sound On';
+        soundBtn.classList.add('active');
+      } else {
+        audio.pause();
+        soundIcon.textContent = '♪';
+        soundLabel.textContent = 'Sound Off';
+        soundBtn.classList.remove('active');
+      }
+    });
 
-    document.body.classList.add('exiting');
-    overlay.classList.add('active');
+    // Enter
+    function doEnter() {
+      localStorage.setItem('enteredSite', 'true');
+      localStorage.setItem('soundOn', soundOn ? '1' : '0');
+      content.classList.add('exiting');
+      overlay.classList.add('active');
+      setTimeout(() => { window.location.href = 'portfolio.html'; }, 1600);
+    }
 
-    setTimeout(() => {
-      window.location.href = 'portfolio.html';
-    }, 1800);
-  }, { once: true });
+    btn.addEventListener('click', doEnter);
+
+    // Generate stars
+    const starsLayer = document.querySelector('.stars-layer');
+    if (starsLayer) {
+      let html = '';
+      for (let i = 0; i < 120; i++) {
+        const x = Math.random() * 100;
+        const y = Math.random() * 70;
+        const s = Math.random() * 2 + 0.5;
+        const d = Math.random() * 4;
+        html += `<span class="star" style="left:${x}%;top:${y}%;width:${s}px;height:${s}px;animation-delay:${d}s"></span>`;
+      }
+      starsLayer.innerHTML = html;
+    }
+  })();
   </script>
 </body>
 </html>
